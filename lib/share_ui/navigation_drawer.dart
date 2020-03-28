@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:map/models/nav_menu.dart';
 import 'package:map/screens/home_screen.dart';
 import 'package:map/screens/headline_news.dart';
+import 'package:map/screens/instagram_feed.dart';
 import 'package:map/screens/twtter_feed.dart';
 
 
@@ -17,8 +18,8 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   [
     NavMenuItem("Explore", () => HomeScreen()),
     NavMenuItem("Headline News", () => HeadLineNews()),
-    NavMenuItem("Twitter Feed", () => TwitterFeed() ),
-
+    NavMenuItem("Twitter Feeds", () => TwitterFeed() ),
+    NavMenuItem("Instagram Feeds", () => InstagramFeed() ),
 
   ];
 
