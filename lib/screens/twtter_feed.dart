@@ -19,10 +19,19 @@ class _TwitterFeedState extends State<TwitterFeed> {
       ),
       drawer: NavigationDrawer(),
       body: ListView.builder(
+        padding: EdgeInsets.all(8),
         itemBuilder: (context, position) {
-          return Card(
-            child: Column(
-              children: <Widget>[_cardHeader(), _cardBoody(), _cardFooter()],
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  _cardHeader(),
+                  _cardBoody(),
+                  _drawLine(),
+                  _cardFooter(),
+                ],
+              ),
             ),
           );
         },
@@ -46,12 +55,27 @@ class _TwitterFeedState extends State<TwitterFeed> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Text('Christina Meyers'),
-                Text(' @ch_meyers'),
+                Text(
+                  'Christina Meyers',
+                  style: TextStyle(
+                      color: Colors.grey.shade800,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  ' @ch_meyers',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ],
             ),
-            SizedBox(height: 8,),
-            Text('Fri, 12 May 2017 - 14.30')
+            SizedBox(
+              height: 8,
+            ),
+            Text(
+              'Fri, 12 May 2017 - 14.30',
+              style: TextStyle(color: Colors.grey),
+            )
           ],
         ),
       ],
@@ -60,34 +84,62 @@ class _TwitterFeedState extends State<TwitterFeed> {
 
   Widget _cardBoody() {
     return Padding(
-      padding: const EdgeInsets.only(left: 16,right: 16,bottom: 8),
-      child: Text('We also taik about the future of work as the robots advance, and we ask whether a retro phone'),
+      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
+      child: Text(
+        'We also taik about the future of work as the robots advance, and we ask whether a retro phone',
+        style:
+            TextStyle(fontSize: 16, height: 1.2, color: Colors.grey.shade900),
+      ),
     );
   }
 
   Widget _cardFooter() {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.only(right: 16,left: 16,bottom: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Row(
             children: <Widget>[
-              IconButton(icon: Icon(Icons.repeat),color: Colors.orange ,onPressed: (){
-
-              }),
-              Text('25'),
+              IconButton(
+                  icon: Icon(
+                    Icons.repeat,
+                    size: 28,
+                  ),
+                  color: Colors.orange,
+                  onPressed: () {}),
+              Text(
+                '25',
+                style: TextStyle(color: Colors.grey, fontSize: 16),
+              ),
             ],
           ),
           Row(
             children: <Widget>[
-              FlatButton(onPressed: (){}, child: Text('SHARE',style: TextStyle(color: Colors.orange),)),
-              FlatButton(onPressed: (){}, child: Text('OPEN',style: TextStyle(color: Colors.orange),)),
-
+              FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    'SHARE',
+                    style: TextStyle(color: Colors.orange),
+                  )),
+              FlatButton(
+                  onPressed: () {},
+                  child: Text(
+                    'OPEN',
+                    style: TextStyle(color: Colors.orange),
+                  )),
             ],
           ),
         ],
       ),
+    );
+  }
+
+  Widget _drawLine() {
+    return Container(
+      height: 0.5,
+      color: Colors.grey.shade200,
+      margin: EdgeInsets.only(top: 16,),
     );
   }
 }
