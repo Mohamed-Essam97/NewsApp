@@ -4,6 +4,7 @@ import 'package:map/share_ui/navigation_drawer.dart';
 import 'package:map/screens/home_tabs/whats_new.dart';
 import 'package:map/screens/home_tabs/popular.dart';
 import 'package:map/screens/home_tabs/favorites.dart';
+import 'package:map/api/authers_api.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,6 +18,11 @@ enum PopOutMenu
 }
 
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin{
+
+
+
+  AuthorsAPI authorsAPI = new AuthorsAPI();
+
 
 
   TabController _tabController;
@@ -33,6 +39,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+
+
+    authorsAPI.fetchAllAuthors();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Explore'),
@@ -102,4 +112,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       icon: Icon(Icons.more_vert),
     );
   }
+
+
+
 }
